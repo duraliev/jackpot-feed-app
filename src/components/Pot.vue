@@ -11,7 +11,7 @@
       </div>
       <div v-if="must_drop_in" class="potTimer">
         <span class="timerSpan">
-          Must Drop In {{ must_drop_in }}
+          Must Drop In  <font-awesome-icon :icon="['fa', 'clock']"/>  {{ must_drop_in }}
         </span>
       </div>
     </div>
