@@ -8,10 +8,11 @@
     <div class="potContent">
       <div class="potAmt">
         <animated-number :value="amount" :formatValue="formatAmount" :duration="2000"/>
-<!--        {{ currency }}{{ amount }}-->
       </div>
       <div v-if="must_drop_in" class="potTimer">
-        Must Drop in {{ must_drop_in }}
+        <span class="timerSpan">
+          Must Drop In {{ must_drop_in }}
+        </span>
       </div>
     </div>
   </div>
@@ -72,7 +73,14 @@ export default {
       //
     }
     .potTimer {
-      //
+      margin-top: 1em;
+      .timerSpan {
+        font-size: .75em;
+        color: #fff;
+        padding: 0 .75em;
+        background-color: #000;
+        border-radius: 2em;
+      }
     }
   }
 }
@@ -108,7 +116,10 @@ export default {
   }
   .potContent{
     width: 60%;
-
+    margin-left: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     .potAmt {
       //
     }
