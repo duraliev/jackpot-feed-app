@@ -1,17 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container">
+    <pot
+      v-for="(pot, index) in pots"
+      :key="index"
+      :type="pot.type"
+      :amount="pot.amount"
+      :currency="pot.currency"
+      :must_drop_in="pot.must_drop_in"
+      :imageType="pot.imageType"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Pot from '@/components/Pot.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Pot,
+  },
+  computed: {
+    pots() {
+      return this.$store.getters.getPots;
+    },
+  },
+  mounted() {
+    this.$store.dispatch('initUpdates');
   },
 };
 </script>
@@ -23,6 +38,22 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  //margin-top: 60px;
+}
+.container {
+  height: 100vh;
+  width: 20vw;
+  max-width: 300px;
+  min-width: 150px;
+
+  margin: -8px;
+
+  padding: .5em 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-image: url('assets/bg.png');
 }
 </style>
