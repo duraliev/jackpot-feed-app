@@ -1,14 +1,16 @@
 <template>
-  <div id="app" class="container">
-    <pot
-      v-for="(pot, index) in pots"
-      :key="index"
-      :type="pot.type"
-      :amount="pot.amount"
-      :currency="pot.currency"
-      :must_drop_in="pot.must_drop_in"
-      :imageType="pot.imageType"
-    />
+  <div id="app">
+    <div class="container">
+      <pot
+        v-for="(pot, index) in pots"
+        :key="index"
+        :type="pot.type"
+        :amount="pot.amount"
+        :currency="pot.currency"
+        :must_drop_in="pot.must_drop_in"
+        :imageType="pot.imageType"
+      />
+    </div>
   </div>
 </template>
 
@@ -39,15 +41,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   //margin-top: 60px;
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: -8px;
 }
 .container {
   height: 100vh;
   width: 20vw;
   max-width: 300px;
   min-width: 150px;
-
-  margin: -8px;
-
   padding: .5em 1em;
 
   display: flex;
