@@ -22,7 +22,6 @@ export default new Vuex.Store({
     updateTimers(state) {
       const newPots = [];
       // TODO probably change this to a reduce statement
-      // TODO make sure it doesn't go below 00:00:00
       state.pots.forEach((pot) => {
         if (pot.must_drop_in) {
           const tStringToSec = (tStr) => {
@@ -76,7 +75,5 @@ export default new Vuex.Store({
 });
 
 // TODO:
-// - Fake request every 30 sec -> pots.foreach(p => p.amount *= 1.001)
-// - update timer every sec until 0 (parse timer to actual number and back)
+// - Fake a request (use a promise)
 // - input mask jackpot amounts
-// - when the amount rises, animate it over 2sec

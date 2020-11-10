@@ -55,6 +55,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+/*TODO: fix design*/
 .pot {
   color: goldenrod;
   background-image: url('../assets/stars.png');
