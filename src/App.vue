@@ -46,18 +46,28 @@ export default {
   flex-direction: column;
   align-items: flex-end;
   margin: -8px;
-}
-.container {
   height: 100vh;
   width: 20vw;
   max-width: 300px;
   min-width: 150px;
+  background-image: url('assets/bg.png');
   padding: .5em 1em;
+  position: relative;
+  z-index: -50;
+}
+.container {
+
+  width: 100%;
+  padding-top: 1em;
+  border-radius: 8px;
+  box-shadow: inset 0 0 3em #322f63;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  background-image: url('assets/bg.png');
+  position: relative;
+  z-index: -20;
+
 }
 </style>

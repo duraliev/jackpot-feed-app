@@ -13,7 +13,7 @@ export default new Vuex.Store({
     },
     updateAmounts(state) {
       const newPots = [];
-      // TODO probably change this to a reduce statement
+      // alternatively this can be done with .reduce, however I find this way easier to read
       state.pots.forEach((pot) => {
         newPots.push({ ...pot, amount: `${Math.floor(pot.amount * 1.001 * 100) / 100}` });
       });
@@ -21,7 +21,7 @@ export default new Vuex.Store({
     },
     updateTimers(state) {
       const newPots = [];
-      // TODO probably change this to a reduce statement
+      // alternatively this can be done with .reduce, however I find this way easier to read
       state.pots.forEach((pot) => {
         if (pot.must_drop_in) {
           const tStringToSec = (tStr) => {
@@ -61,9 +61,15 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    initUpdates() {
+    initUpdates(state) {
       setInterval(() => {
-        this.commit('updateAmounts');
+        state.commit('updateAmounts');
+
+        // if we got them with an actual request (assuming timers will be updated as well):
+
+        // axios.get('https://some-endpoint.com/data').then((res) => {
+        //   state.commit('setPots', [...res.pots]);
+        // });
       }, 30000);
       setInterval(() => {
         this.commit('updateTimers');
@@ -73,7 +79,3 @@ export default new Vuex.Store({
   modules: {
   },
 });
-
-// TODO:
-// - Fake a request (use a promise)
-// - input mask jackpot amounts
